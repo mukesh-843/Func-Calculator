@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <style>
+    /* CSS styles for the calculator go here */
+    .calculator {
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      background-color: #eee;
+    }
+
+    .calculator input {
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+    }
+
+    .calculator button {
+      width: 25%;
+      height: 50px;
+      font-size: 20px;
+      margin: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+    <div>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>+</button>
+    </div>
+    <div>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>-</button>
+    </div>
+    <div>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>*</button>
+    </div>
+    <div>
+      <button>0</button>
+      <button>.</button>
+      <button>=</button>
+      <button>/</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code to add functionality to the calculator goes here
+    const buttons = document.querySelectorAll('button');
+    const display = document.querySelector('#display');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', e => {
+        // Handle input and perform calculations here
+        const text = e.target.innerText;
+        if (text === '=') {
+          // Calculate and display the result
+          display.value = eval(display.value);
+        } else if (text === 'C') {
+          // Clear the display
+          display.value = '';
+        } else {
+          // Append the button text to the display
+          display.value += text;
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
